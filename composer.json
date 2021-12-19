@@ -1,0 +1,26 @@
+{
+    "name": "xqluz/premio-carttrigger",
+    "description": "A simple woocommerce cart events plugin",
+    "type": "wordpress-plugin",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Abhishek Rijal",
+            "email": "avee.wptravelengine@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "exclude-from-classmap": [
+            "includes/functions/HelperFunctions.php"
+        ],
+        "files": [
+            "includes/functions/HelperFunctions.php",
+            "includes/functions/AjaxFunctions.php"
+        ],
+        "psr-4": {
+            "PremioCarttrigger\\": "includes/"
+        }
+    },
+    "require": {}
+}
