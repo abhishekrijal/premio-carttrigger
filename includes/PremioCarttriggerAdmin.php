@@ -38,6 +38,9 @@ class PremioCarttriggerAdmin {
 		// Register pages
 		add_action( 'admin_menu', array( $this, 'add_settings_menu' ) );
 
+		// Redirect to settings page on activation
+		add_action( 'admin_init', array( $this, 'redirect_to_settings_page' ) );
+
 	}
 
 	/**
@@ -65,14 +68,25 @@ class PremioCarttriggerAdmin {
 	 */
 	public function add_settings_menu() {
 		add_menu_page(
-			esc_html__( 'Premio Cart Trigger', 'premio-carttrigger' ),
-			esc_html__( 'Premio Cart Trigger', 'premio-carttrigger' ),
+			esc_html__( 'Cart Triggers', 'premio-carttrigger' ),
+			esc_html__( 'Cart Triggers', 'premio-carttrigger' ),
 			'manage_options',
 			'premio_cart_trigger',
 			[$this,'render_options_page'],
 			'dashicons-cart',
 			40
 		);
+	}
+
+	/**
+	 * Redirect to settings page on activation
+	 * */
+	public function redirect_to_settings_page () {
+		if ( get_transient( 'premio_carttrigger_show_settings_page' ) ) {
+			delete_transient( 'premio_carttrigger_show_settings_page' );
+			wp_safe_redirect( admin_url( 'admin.php?page=premio_cart_trigger' ) );
+			exit;
+		}
 	}
 
 	/**
@@ -90,7 +104,7 @@ class PremioCarttriggerAdmin {
 	 * @return void
 	 */
 	public function render_options_page() {
-		echo '<div id="premioCartTriggerAdminPageRoot"></div>';
+		echo '<div id="premioCartTriggerAdminPageRoot" style="margin-left:-20px;"></div>';
 	}
 
 }

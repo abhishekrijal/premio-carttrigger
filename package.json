@@ -18,6 +18,9 @@
     "@chakra-ui/react": "^1.7.3",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@fontsource/inter": "^4.5.1",
+    "@fontsource/open-sans": "^4.5.2",
+    "@fontsource/raleway": "^4.5.0",
     "@wordpress/scripts": "^19.2.2",
     "framer-motion": "^4",
     "react-hook-form": "^7.22.2"

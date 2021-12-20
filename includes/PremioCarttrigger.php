@@ -56,7 +56,8 @@ final class PremioCarttrigger {
 	 * @return void
 	 */
 	public function activate() {
-
+		require_once plugin_dir_path( PREMIO_CARTTRIGGER_PLUGIN_FILE ) . 'includes/classes/class-premio-carttrigger-activator.php';
+		\PremioCartTriggerActivator::activate();
 	}
 
 	/**
